@@ -1,0 +1,63 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Set button only child icon's color */
+  /* button svg:only-child,
+  button svg:only-child path {
+    @apply !clr-purple;
+  }
+  a svg:only-child,
+  a svg:only-child path {
+    @apply !clr-purple;
+  } */
+
+  /* Variants  */
+  .btn-contained {
+    /* Core styles  */
+    @apply shadow-md rounded box-border font-semibold border border-solid inline-flex justify-center items-center outline-none select-none appearance-none no-underline cursor-pointer transition duration-200;
+    /* Add hover effect  */
+    @apply hover:brightness-90;
+  }
+
+  .btn-outlined {
+    /* Core styles */
+    @apply shadow-md rounded box-border font-semibold border border-solid inline-flex justify-center items-center outline-none select-none appearance-none no-underline cursor-pointer transition duration-200;
+    /* Make bg transparent and set border color to current color  */
+    @apply border-current hover:bg-transparent;
+  }
+
+  .btn-ghost {
+    /* Reset styles  */
+    @apply outline-none border-none bg-transparent appearance-none no-underline;
+    /* Add hover effect  */
+    @apply hover:brightness-90;
+  }
+
+  /* Most used button styles set as a class  */
+  .btn-primary {
+    /* Core styles  */
+    @apply shadow-md rounded box-border font-semibold border border-solid inline-flex justify-center items-center outline-none select-none appearance-none no-underline cursor-pointer transition duration-200;
+    /* Preset bg to base reversed color (e.g. base = white ? bg-base-reversed = black) and set hover effects */
+    @apply !bg-base-reversed clr-base-reversed hover:!bg-base hover:clr-base hover:border-current;
+  }
+  .btn-secondary {
+    @apply rounded bg-transparent clr-secondary hover:bg-secondary hover:clr-base;
+  }
+  .btn-secondary.active {
+    @apply clr-base;
+  }
+}
+
+@layer utilities {
+  /* Button sizes  */
+  .btn-sm {
+    @apply h-8 leading-none text-sm py-2 px-3;
+  }
+  .btn-md {
+    @apply px-3 py-2 clr-base;
+  }
+  .btn-lg {
+    @apply h-12 px-3 font-semibold text-lg max-w-full;
+  }
+}

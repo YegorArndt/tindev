@@ -23,6 +23,7 @@ export default memo(
         children = text,
         className,
         baseCn,
+
         ...props
       }: ButtonProps,
       ref: Ref<HTMLButtonElement>
@@ -32,7 +33,7 @@ export default memo(
         {
           type: "button",
           ref,
-          className: cn("btn", className, baseCn),
+          className: cn(className, baseCn),
           ...props,
         },
         children

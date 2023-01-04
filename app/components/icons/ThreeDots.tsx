@@ -7,6 +7,9 @@ const SvgThreeDots = (props: SVGProps<SVGSVGElement>) => (
     width="1em"
     height="1em"
     className="three-dots_svg__threeDots_svg__sc-bdnylx three-dots_svg__threeDots_svg__eoHNwX"
+    style={{
+      color: "currentcolor",
+    }}
     {...props}
   >
     <path

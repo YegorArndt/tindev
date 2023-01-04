@@ -20,8 +20,8 @@ export default memo(
         text,
         children = text,
         newTab,
-        className,
-        baseCn,
+        className = "",
+        baseCn = "",
         ...props
       }: LinkProps,
       ref: Ref<HTMLAnchorElement>
@@ -29,7 +29,7 @@ export default memo(
       <Link
         target={newTab ? "_blank" : undefined}
         rel={newTab ? "noreferrer" : undefined}
-        className={cn("btn", className, baseCn)}
+        className={cn(className, baseCn)}
         href={to}
         aria-label={to as string}
         ref={ref}

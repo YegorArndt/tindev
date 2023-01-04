@@ -1,3 +1,5 @@
+@import "app/components/ui/button/button.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,90 +11,90 @@
   --green: #2da44e;
   --red: #f44336;
   --yellow: rgb(245, 184, 28);
+  --purple: #7928ca;
 }
 .dark {
-  --bg-primary: rgb(30, 30, 30);
-  --bg-secondary: rgb(23, 23, 23);
-  --clr-primary: rgb(129, 129, 129);
-  --clr-secondary: #fff;
+  --bg-base: #000;
   --clr-base: #fff;
+
+  --bg-secondary: rgb(30, 30, 30);
+  --clr-secondary: #888;
+
+  --bg-primary: #000;
+  --clr-primary: #fff;
+
   --select: #f81ce5;
-  --border: 1px solid rgb(30, 30, 30);
+  --border-clr: #333;
 }
 .light {
   --bg-base: #fff;
   --clr-base: #000;
+
   --bg-primary: #fafafa;
-  --bg-secondary: var(--gray);
   --clr-primary: #666;
+
+  --bg-secondary: var(--gray);
   --clr-secondary: #444;
+
   --select: #79ffe1;
-  --border: 1px solid var(--gray);
+  --border-clr: var(--gray);
 }
 
 @layer base {
-  body,
-  #__next {
+  body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     scroll-behavior: smooth;
-    @apply text-primary text-base;
+    background-color: var(--bg-base);
+    @apply clr-base text-base;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-semibold;
+  ::selection {
+    background-color: var(--select);
+  }
+
+  h1 {
+    @apply h1;
   }
 
   h2 {
-    @apply text-3xl;
+    @apply h2;
+  }
+  h3 {
+    @apply h3;
+  }
+  h4 {
+    @apply h4;
   }
 }
 
 @layer components {
-  .primary {
-    @apply shadow-md rounded box-border font-semibold border-2 border-solid inline-flex justify-center items-center select-none appearance-none no-underline cursor-pointer;
-    background-color: var(--clr-base);
-    color: var(--bg-base);
-    border-color: var(--clr-base);
-    padding: 0.875rem 1.5rem;
-
-    &:hover {
-      background-color: var(--bg-base);
-      color: var(--clr-base);
-    }
+  /* Black line  */
+  .active-tab::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 75%;
+    border: 0;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    bottom: -0.85rem;
+    border-bottom: 2px solid;
   }
 
-  /* Hover effect for ghost buttons with only a color property */
-  .ghost:hover {
-    filter: brightness(0.9);
-  }
-
-  /* Effects for any other contained buttons */
-  .contained {
-    @apply shadow-md rounded box-border font-semibold border-2 border-solid inline-flex justify-center items-center select-none appearance-none no-underline cursor-pointer;
-    padding: 0.875rem 1.5rem;
-    border-color: transparent;
-
-    &:hover {
-      filter: brightness(0.9);
-    }
-  }
-
-  .outlined {
-    @apply shadow-md rounded box-border font-semibold border-2 border-solid inline-flex justify-center items-center select-none appearance-none no-underline cursor-pointer;
-    background-color: transparent;
-    color: var(--clr-base);
-    border-color: currentColor;
-    padding: 0.75rem 1.375rem; /* -2px each due to border */
-
-    &:hover {
-      @apply bg-transparent;
-    }
+  /* Circle with number  */
+  a[data-circle]::after {
+    --size: auto;
+    @apply flex-center absolute text-center font-bold top-0;
+    top: -0.5rem;
+    right: 0rem;
+    height: var(--size);
+    width: var(--size);
+    padding: 0.5rem;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 }
 
@@ -102,19 +104,19 @@
   }
 
   .border {
-    border: var(--border);
+    border: 1px solid var(--border-clr);
 
     &-top {
-      border-top: var(--border);
+      border-top: 1px solid var(--border-clr);
     }
     &-bottom {
-      border-bottom: var(--border);
+      border-bottom: 1px solid var(--border-clr);
     }
     &-left {
-      border-left: var(--border);
+      border-left: 1px solid var(--border-clr);
     }
     &-right {
-      border-right: var(--border);
+      border-right: 1px solid var(--border-clr);
     }
   }
 }
