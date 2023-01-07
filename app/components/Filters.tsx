@@ -14,16 +14,18 @@ export default function Filters({ vacancies }) {
       <SearchInput
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        wrapperCn="pt-0 bg-transparent"
+        wrapperCn="!static !pt-0 !bg-transparent !border-none"
       />
       {filteredFields.length === 0 ? (
         <div className="w-full">
-          <NotFound />
+          <NotFound className="!border-none" />
         </div>
       ) : (
-        (filteredFields as Vacancy[]).map(({ ...vacancy }) => (
-          <Card key={vacancy.description} {...vacancy} />
-        ))
+        <div className="[&>*]:mt-8">
+          {(filteredFields as Vacancy[]).map(({ ...vacancy }) => (
+            <Card key={vacancy.description} {...vacancy} />
+          ))}
+        </div>
       )}
     </>
   );

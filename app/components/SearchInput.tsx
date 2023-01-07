@@ -1,4 +1,6 @@
 "use client";
+
+import { forwardRef } from "react";
 import cn from "classnames";
 import type { ReactNode } from "react";
 
@@ -10,11 +12,10 @@ type SearchInputProps = Omit<InputProps, "ref"> & {
   children?: ReactNode;
 };
 
-export default function SearchInput({
-  wrapperCn,
-  children,
-  ...props
-}: SearchInputProps) {
+export default forwardRef(function SearchInput(
+  { wrapperCn, children, ...props }: SearchInputProps,
+  ref
+) {
   return (
     <div
       className={cn(
@@ -22,8 +23,13 @@ export default function SearchInput({
         wrapperCn
       )}
     >
-      <Input placeholder="Search for fields here" baseCn="w-full" {...props} />
+      <Input
+        placeholder="Search for fields here"
+        baseCn="w-full"
+        ref={ref}
+        {...props}
+      />
       {children}
     </div>
   );
-}
+});

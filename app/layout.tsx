@@ -7,6 +7,8 @@ import { useState } from "react";
 import { Link } from "./components/ui";
 import logo from "public/logo.png";
 import "../styles/globals.css";
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/slide.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

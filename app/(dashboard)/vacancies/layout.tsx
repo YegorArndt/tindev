@@ -14,7 +14,7 @@ export default function VacanciesLayout({ children }: Layout) {
             { text: "Issued test assignment", to: routes.test_assignment },
           ]}
         />
-        <div className="col-span-3 pt-10 [&>section]:mb-8">{children}</div>
+        <div className="col-span-3 pt-10">{children}</div>
       </div>
     </div>
   );

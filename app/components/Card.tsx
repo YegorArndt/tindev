@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import cn from "classnames";
+import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 
 import { Button } from "app/components/ui";
 import { Accordion } from "./";
@@ -49,9 +50,18 @@ export default function Card({
             <p className="text-sm text-gray-500">posted at: {postedAt}</p>
           </section>
         </div>
-        <Button className="clr-primary">
-          <ThreeDots />
-        </Button>
+        <Menu
+          menuButton={
+            <MenuButton className="clr-primary hover:bg-secondary p-2 rounded-full">
+              <ThreeDots />
+            </MenuButton>
+          }
+          transition
+        >
+          <MenuItem>Hide</MenuItem>
+          <MenuItem>Add company image</MenuItem>
+          <MenuItem>Report an error</MenuItem>
+        </Menu>
       </header>
       <div className="mt-4">{description}</div>
       <Accordion
